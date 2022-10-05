@@ -1,0 +1,18 @@
+*{
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+
+html{
+    background: url("https://i0.wp.com/theluxurytravelexpert.com/wp-content/uploads/2020/05/ALILA.jpg?fit=970%2C546&ssl=1");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+
+}
+
+body{
+    
+}
