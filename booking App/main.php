@@ -20,66 +20,101 @@ $BookOUT = $_POST['BookOUT'];
 
 //creating user obj using Users class
 $user = new User($firstName, $surname, $email, $password, $BookIN, $BookOUT);
-echo $user->get_name();
+// echo $user->get_name();
 
-//fetching JSON hotels file and converting to php array
+//fetching JSON hotels file and converting to php 
 $hotelListJson = file_get_contents('data\hotels.json');
 $hotelsList = json_decode($hotelListJson);
+//empty array used to push new Hotles into
+$hotelsArr = array();
 
-//creating hotel objects using Hotel class
-foreach ($hotelsList as $i) {
-    $hotel = new Hotels($i[0], $i[1], $i[2], $i[3], $i[4], $i[5], $i[6],);
-    // print_r($hotel);
+//for each loop to create hotel objects from $hotelsList(line27) and pushing objects into $hotelsArr to display
+foreach($hotelsList as $hotel){
+    $hotelObj = new Hotels($hotel[0],$hotel[1],$hotel[2],$hotel[3],$hotel[4],$hotel[5],$hotel[6],);
+    array_push($hotelsArr,$hotelObj);
 }
 
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- link css -->
+    <link rel="stylesheet" href="styles/mainStyle.css">
     <!-- link bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     <title>Hotels</title>
 </head>
 <body>
- <?php
-//  print_r($hotelsList) ;
-$length = count($hotelsList);
- for($i = 0; $i < $length ; $i ++) {
 
- echo '<div class="card bg-secondary p-2 text-dark bg-opacity-50" style="width: 18rem;">
- <img src="'.$hotel->get_img().'" class="card-img-top" alt="...">
+<nav class="navbar navbar-expand-lg bg-light mb-2">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Where to Mr <?php echo $firstName . ' ' . $surname ?>?</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    </div>
+  </div>
+</nav>
+
+<div class="row ">
+ <?php
+// loop trough created hotel objects and displaying them.
+
+foreach($hotelsArr as $hotels){
+ echo '
+ <div class=" hotelWrapper col-sm-3 ">
+ <div class=" hotelCard  card bg-secondary p-2 text-dark bg-opacity-50" >
+ <img src="'.$hotels->get_img().'" class="card-img-top cardImages" alt="...">
  <div class="card-body">
-   <h5 class="card-title">'.$hotel->get_name().'</h5>
+   <h5 class="card-title">'.$hotels->get_name().'</h5>
  </div>
  <ul class="list-group list-group-flush">
-   <li class="list-group-item">Cost per night : '.$hotel->get_cost().'</li>
-   <li class="list-group-item">Rooms Avail : '.$hotel->get_availRooms().'</li>
-   <li class="list-group-item">Hotel Rating : '.$hotel->get_rating().'</li>
-   <li class="list-group-item text-danger">Calc Cost : '.$hotel->get_rating().'</li>
+   <li class="list-group-item">Cost per night : '.$hotels->get_cost().'</li>
+   <li class="list-group-item">Rooms Avail : '.$hotels->get_availRooms().'</li>
+   <li class="list-group-item">Hotel Rating : '.$hotels->get_rating().'</li>
+   <li class="list-group-item text-danger">Calc Cost : '.$hotels->get_rating().'</li>
  </ul>
  <div class="card-body">
  <div class="d-flex justify-content-around">
- <form action="" method="post">
- <input type="text" value="'.$hotel->get_id().'" hidden>
+ <form action="book.php" method="post">
+ <input type="text"  name="book" value='.$hotels->get_id().'  hidden>
 <button type="submit" class="bg-secondary p-2 text-dark bg-opacity-100 text-white">Book</button>
 </form>  
-<form action="" method="post">
-<input type="text" value="'.$hotel->get_id().'" hidden>
+<form action="book.php" method="post">
+<input type="text" name="details" value='.$hotels->get_id().' hidden>
 <button type="submit" class="bg-secondary p-2 text-dark bg-opacity-100 text-white">Details</button>
 </form>
 </div>
  </div>
+</div>
 </div>';
-};
+}
+
+
  ?> 
+
+</div>
+
+
+
 
 
   
 </body>
 </html>
+
+
+
+
+
+
+
+
+
 

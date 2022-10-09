@@ -15,49 +15,50 @@
 
 <body>
     <div class="formWrapper">
-        <form action="main.php" class="loginForm" method="post">
+        <form action="main.php" class="loginForm" method="post" class="inputForm">
             <div class="formInput">
-            <label for="firstName">First Name</label>
-            <input type="text" name="firstName" required>
+                <div class="mb-3">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input type="text" name="firstName" class="form-control" required>
+                </div>
+             </div>
+            <div class="formInput">
+                <div class="mb-3">
+                    <label for="surname" class="form-label">Surname</label>
+                    <input type="text" name="surname" class="form-control" required>
+                </div>
             </div>
             <div class="formInput">
-            <label for="surname">Surname</label>
-            <input type="text" name="surname" required>
+                <div class="mb-3">
+                    <label for="email" class="form-label">E-mail</label>
+                    <input type="email" name="email" class="form-control" required>
+                </div>
             </div>
             <div class="formInput">
-            <label for="email">Email</label>
-            <input type="email" name="email" required>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" name="password" class="form-control" required>
+                </div>
             </div>
             <div class="formInput">
-            <label for="password">Password</label>
-            <input type="password" name="password" required>
+                <div class="mb-3">
+                    <label for="bookIn" class="form-label">Book in Date</label>
+                    <input type="date" name="BookIN" class="form-control" required>
+                </div>
             </div>
             <div class="formInput">
-            <label for="passwordConf">Confirm Password</label>
-            <input type="password" name="passwordConf" required>
+                <div class="mb-3">
+                    <label for="bookOut" class="form-label">Book out Date</label>
+                    <input type="date" name="BookOUT" class="form-control" required>
+                </div>
             </div>
             <div class="formInput">
-            <label for="BookIN">Book in Date</label>
-            <input type="date" name="BookIN" required>
-            </div>
-            <div class="formInput">
-            <label for="BookOUT">Book out Date</label>
-            <input type="date" name="BookOUT" required>
-            </div>
-            <div class="formInput">
-            <button type="submit">Submit</button>
+            <button type="submit" class="btn btn-secondary btn-lg btn-block">Submit</button>
             </div>
         </form>
 
         
     </div>
-
-    <form action="" method="post">
-        <div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Firs Name</label>
-  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-</div>
-        </form>
 </body>
 
 </html>

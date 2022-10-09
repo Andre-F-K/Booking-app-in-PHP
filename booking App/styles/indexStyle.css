@@ -1,52 +1,11 @@
 *{
     margin: 0%;
     box-sizing: border-box;
-    
-}
-html{
-    background-image: url("https://i0.wp.com/theluxurytravelexpert.com/wp-content/uploads/2020/05/ALILA.jpg?fit=970%2C546&ssl=1");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-color: aqua !important;
 }
 
-body{
-    
-    display: flex;
-    justify-content: center;
+.inputForm{
     align-items: center;
-    text-align: center;
-    font-size: x-large;
-    height: 100%;
-
-}
-.formWrapper{
-    margin-top: 5%;
-    background-color: rgb(59, 65 , 60, 0.9);
-
-    width: 25%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-
-}
-
-.loginForm{
-    width: 100%;
-
-}
-
-.formInput{
-    padding: 5%;
-
-
-}
-
-input{
-    height: 2rem;
-}
-
-button{
-    padding: 5%;
+    width: 20%;
+    background-color: rgb(67, 67, 113) ;
 }

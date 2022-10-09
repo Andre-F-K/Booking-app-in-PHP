@@ -1,12 +1,15 @@
-[[
+[
+  [
     1,
-    "The Doors Inn Guest House",
+    "Doors Inn Guest House",
     "R900.00",
     "2",
-    ["Free parking",
-    "Adult pool",
-    "Coffee shop"],
-    "img",
+    [
+      "Free parking",
+      "Adult pool",
+      "Coffee shop"
+    ],
+    "images\/hotel1.jpg",
     "4.5 stars"
   ],
   [
@@ -14,21 +17,25 @@
     "ATKV Klein-Kariba",
     "R897.00",
     "4",
-    ["Smoking Area",
-    "Warm water pool",
-    "Darts"],
-    "img",
+    [
+      "Smoking Area",
+      "Warm water pool",
+      "Darts"
+    ],
+    "images\/hotel2.webp",
     "5.0 stars"
   ],
   [
     3,
-    "Summerset Place Country House",
+    "Summerset Place ",
     "R945.00",
     "0",
-    ["Table tennis",
-    "Outdoor furniture",
-    "Free breakfast"],
-    "img",
+    [
+      "Table tennis",
+      "Outdoor furniture",
+      "Free breakfast"
+    ],
+    "images\/hotel3.jpg",
     "3.5 stars"
   ],
   [
@@ -36,10 +43,12 @@
     "Phumelelo Lodge",
     "R2975.00",
     "10",
-    ["Horseback riding",
-    "Body wrap",
-    "BBQ facilities"],
-    "img",
+    [
+      "Horseback riding",
+      "Body wrap",
+      "BBQ facilities"
+    ],
+    "images\/hotel4.jpg",
     "4.6 stars"
   ],
   [
@@ -47,20 +56,25 @@
     "Tshipise a Forever Resort",
     "R1200.00",
     "15",
-    ["Bar / lounge",
-    "Banquet room",
-    "Tennis court"],
-    "img",
+    [
+      "Bar \/ lounge",
+      "Banquet room",
+      "Tennis court"
+    ],
+    "images\/hotel5.jpg",
     "2.4 stars"
   ],
   [
-  6,
-  "Buyskop Lodge, Conference & Spa",
-  "R920.00",
-  "1",
-  ["Hiking",
-  "Conference facilities",
-  "Children's playground"],
-  "images/MainBackground.jpg",
-  "4.9 stars"
-]]
+    6,
+    "Buyskop Lodge & Spa",
+    "R920.00",
+    "1",
+    [
+      "Hiking",
+      "Conference facilities",
+      "Children's playground"
+    ],
+    "images\/hotel6.jpg",
+    "4.9 stars"
+  ]
+]
