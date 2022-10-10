@@ -2,7 +2,7 @@
   [
     1,
     "Doors Inn Guest House",
-    "R900.00",
+    900.00,
     "2",
     [
       "Free parking",
@@ -15,7 +15,7 @@
   [
     2,
     "ATKV Klein-Kariba",
-    "R897.00",
+    897.00,
     "4",
     [
       "Smoking Area",
@@ -28,7 +28,7 @@
   [
     3,
     "Summerset Place ",
-    "R945.00",
+    945.00,
     "0",
     [
       "Table tennis",
@@ -41,7 +41,7 @@
   [
     4,
     "Phumelelo Lodge",
-    "R2975.00",
+    2975.00,
     "10",
     [
       "Horseback riding",
@@ -54,7 +54,7 @@
   [
     5,
     "Tshipise a Forever Resort",
-    "R1200.00",
+    1200.00,
     "15",
     [
       "Bar \/ lounge",
@@ -67,7 +67,7 @@
   [
     6,
     "Buyskop Lodge & Spa",
-    "R920.00",
+    920.00,
     "1",
     [
       "Hiking",

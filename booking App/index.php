@@ -13,9 +13,9 @@
     <title>Booking App</title>
 </head>
 
-<body>
-    <div class="formWrapper">
-        <form action="main.php" class="loginForm" method="post" class="inputForm">
+<body class="d-flex bg-image  justify-content-center align-items-center" >
+    <div class="formWrapper " >
+        <form action="main.php" class="loginForm "  method="post" class="inputForm">
             <div class="formInput">
                 <div class="mb-3">
                     <label for="firstName" class="form-label">First Name</label>

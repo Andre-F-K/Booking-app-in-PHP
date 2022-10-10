@@ -9,7 +9,7 @@ error_reporting(E_ALL);
 
 include 'models/users.php';
 include 'models/hotels.php';
-
+session_start();
 //fetching user input from login
 $firstName = $_POST['firstName'];
 $surname = $_POST['surname'];
@@ -20,7 +20,7 @@ $BookOUT = $_POST['BookOUT'];
 
 //creating user obj using Users class
 $user = new User($firstName, $surname, $email, $password, $BookIN, $BookOUT);
-// echo $user->get_name();
+
 
 //fetching JSON hotels file and converting to php 
 $hotelListJson = file_get_contents('data\hotels.json');
@@ -28,11 +28,17 @@ $hotelsList = json_decode($hotelListJson);
 //empty array used to push new Hotles into
 $hotelsArr = array();
 
+
 //for each loop to create hotel objects from $hotelsList(line27) and pushing objects into $hotelsArr to display
 foreach($hotelsList as $hotel){
     $hotelObj = new Hotels($hotel[0],$hotel[1],$hotel[2],$hotel[3],$hotel[4],$hotel[5],$hotel[6],);
     array_push($hotelsArr,$hotelObj);
 }
+
+$_SESSION['hotelsArray'] = $hotelsList;
+$_SESSION['calcDate'] = $user->calc_days();
+$_SESSION['bookIn'] = $BookIN;
+$_SESSION['bookOut'] = $BookOUT;
 
 ?>
 
@@ -75,10 +81,10 @@ foreach($hotelsArr as $hotels){
    <h5 class="card-title">'.$hotels->get_name().'</h5>
  </div>
  <ul class="list-group list-group-flush">
-   <li class="list-group-item">Cost per night : '.$hotels->get_cost().'</li>
+   <li class="list-group-item">Cost per night : ' .'R'.$hotels->get_cost().'</li>
    <li class="list-group-item">Rooms Avail : '.$hotels->get_availRooms().'</li>
    <li class="list-group-item">Hotel Rating : '.$hotels->get_rating().'</li>
-   <li class="list-group-item text-danger">Calc Cost : '.$hotels->get_rating().'</li>
+   <li class="list-group-item text-danger">Calc Cost : '.'R'.$user->calc_cost($hotels->get_cost()).'</li>
  </ul>
  <div class="card-body">
  <div class="d-flex justify-content-around">
@@ -95,6 +101,8 @@ foreach($hotelsArr as $hotels){
 </div>
 </div>';
 }
+
+
 
 
  ?> 
