@@ -2,9 +2,9 @@
 
 <?php
 // display errors
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 
 
 include 'models/users.php';
@@ -35,10 +35,14 @@ foreach($hotelsList as $hotel){
     array_push($hotelsArr,$hotelObj);
 }
 
-$_SESSION['hotelsArray'] = $hotelsList;
+$_SESSION['hotelsArr'] = $hotelsArr;
 $_SESSION['calcDate'] = $user->calc_days();
 $_SESSION['bookIn'] = $BookIN;
 $_SESSION['bookOut'] = $BookOUT;
+$_SESSION['hotelsArr'] = $hotelsArr;
+
+
+
 
 ?>
 
@@ -78,7 +82,7 @@ foreach($hotelsArr as $hotels){
  <div class=" hotelCard  card bg-secondary p-2 text-dark bg-opacity-50" >
  <img src="'.$hotels->get_img().'" class="card-img-top cardImages" alt="...">
  <div class="card-body">
-   <h5 class="card-title">'.$hotels->get_name().'</h5>
+   <h5 class="card-title hotelName">'.$hotels->get_name().'</h5>
  </div>
  <ul class="list-group list-group-flush">
    <li class="list-group-item">Cost per night : ' .'R'.$hotels->get_cost().'</li>
@@ -101,9 +105,6 @@ foreach($hotelsArr as $hotels){
 </div>
 </div>';
 }
-
-
-
 
  ?> 
 

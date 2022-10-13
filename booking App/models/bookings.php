@@ -37,10 +37,8 @@ class Book{
         return $this->bookOutDate;
     }
     function get_features(){
-            foreach($this->features as $feature){
-                return($feature)  ;
-            }
-            // return $this->features ;
+                
+            return $this->features;
         
 
     }  
