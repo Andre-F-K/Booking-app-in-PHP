@@ -1,12 +1,16 @@
 <?php
-include 'models/hotels.php';
-
-include 'models/bookings.php';
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
+
+
+include 'models/hotels.php';
+
+include 'models/bookings.php';
 session_start();
+
 
 //Retrieving clicked ID
 $hotelID = $_POST['book'] - 1;
@@ -18,13 +22,15 @@ $hotelsArray = $_SESSION['hotelsArray'];
 //Session to acquire book in/out dates as well as calculated costs
 $bookIn = $_SESSION['bookIn'];
 $bookOut = $_SESSION['bookOut'];
-$hotelsArr = $_SESSION['hotelsArr'];
 $calculatedCost = $_SESSION['calcDate'] * $hotelsArray[$hotelID][2];
+$hotelsArr = $_SESSION['hotelsArr'];
+
 
 
 
 //creating new Book class 
 $selectedHotel = new Book($hotelsArray[$hotelID][1], $calculatedCost, $bookIn, $bookOut, $hotelsArray[$hotelID][4], $hotelsArray[$hotelID][5], $hotelsArray[$hotelID][6]);
+$_SESSION['selectHotel'] = $selectedHotel;
 // print_r($selectedHotel);
 
 
@@ -32,10 +38,8 @@ $selectedHotel = new Book($hotelsArray[$hotelID][1], $calculatedCost, $bookIn, $
 
 
 $randomHotelID = Hotels::random_hotel($hotelsArray, $selectedHotel);
-// $featureDisplay =  Hotels::display_features($selectedHotel);
+$_SESSION['randomHotelID'] = $randomHotelID;
 
-// print_r($hotelsArr[$randomHotelID]) ;
-// print_r(gettype($randomHotelID));
 
 
 
@@ -74,11 +78,12 @@ $randomHotelID = Hotels::random_hotel($hotelsArray, $selectedHotel);
   <li class="list-group-item">' . "Calculated Cost : " . "R" . $selectedHotel->get_cost() . '</li>
 </ul>
 <div class="card-body">
-  <form action="payment.php" method="">
+  <form action="payment.php" method="Post">
+  <input type="text" name="bookedHotel" value="'.$hotelID.'" hidden>
     <button class="btn btn-primary" type="submit">Confirm Booking</button>
   </form>
 </div>
-</div>
+</div>S
 </div>';
     ?>
     <?php
@@ -87,7 +92,7 @@ $randomHotelID = Hotels::random_hotel($hotelsArray, $selectedHotel);
 <img src="' . $hotelsArr[$randomHotelID]->image . '" class="card-img-top cardImages" alt="...">
 <div class="card-body">
   <h5 class="card-title">' . $hotelsArr[$randomHotelID]->name . '</h5>
-  <p class="card-text">' . implode($hotelsArr[$randomHotelID]->features ).'</p>
+  <p class="card-text">' . implode("<br>" ,$hotelsArr[$randomHotelID]->features ).'</p>
 </div>
 <ul class="list-group list-group-flush">
   <li class="list-group-item">' . "Calculated Cost : " . "R" . $hotelsArr[$randomHotelID]->cost . '</li>
@@ -95,7 +100,8 @@ $randomHotelID = Hotels::random_hotel($hotelsArray, $selectedHotel);
   <li class="list-group-item">' . "Hotel Rating : ". $hotelsArr[$randomHotelID]->rating . '</li>
 </ul>
 <div class="card-body">
-  <form action="main.php" method="">
+  <form action="payment.php" method="Post">
+  <input type="text" name="bookedHotel" value="'.$randomHotelID.'" hidden>
     <button class="btn btn-primary"  type="submit">Changed Your Mind?</button>
   </form>
 
@@ -103,8 +109,6 @@ $randomHotelID = Hotels::random_hotel($hotelsArray, $selectedHotel);
 </div>
 </div>'
     ?>
-
-
 
 
 

@@ -18,4 +18,5 @@ body{
 
 textarea {   /* for all text* area elements */
     resize: none;
+    width: 100%;
   }

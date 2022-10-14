@@ -13,14 +13,37 @@
 </head>
 
 <body>
+    <?php
+    // display errors
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+
+    include 'models/hotels.php';
+    include 'models/bookings.php';
+    session_start();
+
+
+
+  
+        //fetching clicked hotel from book.php 
+        $randomHotelSelec = $_POST['bookedHotel'];
+        $hotelsArr = $_SESSION['hotelsArr'];
+        $hotelBooked = $hotelsArr[$randomHotelSelec];
+        // print_r($hotelBooked);
+
+        Book::push_toJSON( $hotelBooked);
+    
+    ?>
     <div class="card payCard">
         <h5 class="card-header">Payment</h5>
         <div class="card-body">
-            <h5 class="card-title">Hotel:</h5>
-            <p class="card-text">insert Cust E-mail here</p>
-            <textarea name="" id="" cols="75" rows="5"></textarea>
+            <h5 class="card-title">Hotel has been booked</h5>
+            <p class="card-text">This Hotel will be pushed to Json, payment will be collected on day of arrival</p>
+            <textarea name="" id="" cols="75" rows="5" value><?php print_r($hotelBooked)   ?></textarea>
             <div>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <a href="index.php" class="btn btn-primary ">Fin.</a>
             </div>
         </div>
     </div>

@@ -3,13 +3,13 @@
 class Book{
 
 
-        private $hotelName;
-        private $calculatedCost;
-        private $bookInDate;
-        private $bookOutDate;
-        private $features;
-        private $image;
-        private $rating;
+        public $hotelName;
+        public $calculatedCost;
+        public $bookInDate;
+        public $bookOutDate;
+        public $features;
+        public $image;
+        public $rating;
 
 
     function __construct($hotelName,$calculatedCost,$bookInDate,$bookOutDate,$features,$image,$rating,)
@@ -39,14 +39,26 @@ class Book{
     function get_features(){
                 
             return $this->features;
-        
-
     }  
     function get_image(){
         return $this->image;
     } 
 
+    static function push_toJSON($hotelObj){
+        // $hotelsToJSONarr = array();
+        // if(isset($hotelsToJSONarr)){
+        //     $json = file_get_contents('data/BookedHotel.json');
+        //     $data = json_decode($json, true);
+    
+        //     $data = array_push($hotelsToJSONarr, $hotelObj);
+        //     $newData = json_encode($data, true);
+        //     file_put_contents("BookedHotel.json", $newData);
+        // }else{
+        //     return;
+        // }
 
+
+    }
 
 
 
@@ -62,23 +74,3 @@ class Book{
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-?>

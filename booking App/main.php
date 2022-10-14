@@ -2,14 +2,14 @@
 
 <?php
 // display errors
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-
+session_start();
 include 'models/users.php';
 include 'models/hotels.php';
-session_start();
+
 //fetching user input from login
 $firstName = $_POST['firstName'];
 $surname = $_POST['surname'];
@@ -17,6 +17,11 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 $BookIN = $_POST['BookIN'];
 $BookOUT = $_POST['BookOUT'];
+
+
+
+
+
 
 //creating user obj using Users class
 $user = new User($firstName, $surname, $email, $password, $BookIN, $BookOUT);
@@ -35,6 +40,7 @@ foreach($hotelsList as $hotel){
     array_push($hotelsArr,$hotelObj);
 }
 
+$_SESSION['hotelsArray'] = $hotelsList;
 $_SESSION['hotelsArr'] = $hotelsArr;
 $_SESSION['calcDate'] = $user->calc_days();
 $_SESSION['bookIn'] = $BookIN;
@@ -63,7 +69,7 @@ $_SESSION['hotelsArr'] = $hotelsArr;
 
 <nav class="navbar navbar-expand-lg bg-light mb-2">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Where to Mr <?php echo $firstName . ' ' . $surname ?>?</a>
+    <a class="navbar-brand" href="#">Where to Mr <?php echo $user->get_name(); ?>?</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

@@ -18,15 +18,18 @@ class User{
         $this->password = $password;
         $this->BookIN = $BookIN;
         $this->BookOUT = $BookOUT;
+        
 
     }
     function get_name() {
         echo $this->firstName;
-        echo $this->surname;
+
+      }
+
+      function get_email() {
+
         echo $this->email;
-        echo $this->password;
-        echo $this->BookIN;
-        echo $this->BookOUT;
+
       }
 
       function calc_days(){
